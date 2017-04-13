@@ -20,12 +20,22 @@
 #endif
 #include "TMOUT1.h"
 
+uint8 Ticks;
+
 void TMR_OnInterrupt(void) {
   /* this one gets called from an interrupt!!!! */
   /*! \todo Add code for a blinking LED here */
+
+	if(Ticks == 1000/TMR_TICK_MS){
+		Ticks = 0;
+		EVNT_SetEvent(EVNT_LED_HEARTBEAT);
+	} else{
+		Ticks++;
+	}
 }
 
 void TMR_Init(void) {
+	TI1_Enable();
 }
 
 void TMR_Deinit(void) {

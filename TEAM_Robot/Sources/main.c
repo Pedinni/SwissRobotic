@@ -36,9 +36,13 @@
 #include "BitIoLdd2.h"
 #include "SW1.h"
 #include "BitIoLdd3.h"
+#include "AS1.h"
+#include "ASerialLdd3.h"
 #include "CLS1.h"
 #include "FRTOS1.h"
 #include "RTOSCNTRLDD1.h"
+#include "TI1.h"
+#include "TimerIntLdd1.h"
 #include "RTT1.h"
 #include "SYS1.h"
 #include "LED_IR.h"
@@ -88,6 +92,7 @@
 #include "MCUC1.h"
 #include "ADC_Bat.h"
 #include "TmDt1.h"
+#include "PTA.h"
 #include "IFsh1.h"
 #include "IntFlashLdd1.h"
 #include "PTRC1.h"
@@ -119,6 +124,11 @@ int main(void)
 
   /* Write your code here */
   /* For example: for(;;) { } */
+  EVNT_Init();
+  __asm volatile("cpsie i");
+  for(;;){
+	  EVNT_HandleEvent(&APP_EventHandler, TRUE);
+  }
   APP_Start();
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

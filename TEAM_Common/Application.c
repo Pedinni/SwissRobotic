@@ -49,6 +49,17 @@ void APP_EventHandler(EVNT_Handle event) {
   switch(event) {
   case EVNT_STARTUP:
     break;
+  case EVNT_LED_NEG:
+	  LED1_Neg();
+	  break;
+  case EVNT_LED_HEARTBEAT:
+	  LED1_On();
+	  WAIT1_WaitOSms(100);
+	  LED2_On();
+	  WAIT1_WaitOSms(400);
+	  LED1_Off();
+	  LED2_Off();
+	  break;
   default:
     break;
    } /* switch */
