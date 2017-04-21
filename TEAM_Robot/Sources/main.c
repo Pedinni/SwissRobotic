@@ -127,6 +127,7 @@ int main(void)
   EVNT_Init();
   __asm volatile("cpsie i");
   for(;;){
+	  KEY_Scan();
 	  EVNT_HandleEvent(&APP_EventHandler, TRUE);
   }
   APP_Start();

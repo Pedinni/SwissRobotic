@@ -60,6 +60,11 @@ void APP_EventHandler(EVNT_Handle event) {
 	  LED1_Off();
 	  LED2_Off();
 	  break;
+  case EVNT_SW1_PRESSED:
+	  LED1_On();
+	  WAIT1_WaitOSms(100);
+	  LED1_Off();
+	  break;
   default:
     break;
    } /* switch */
