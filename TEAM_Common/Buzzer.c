@@ -52,6 +52,107 @@ static const BUZ_Tune MelodyButtonLong[] =
     {250,200},
 };
 
+static const BUZ_Tune MelodyMario[] =
+{ /* freq, ms */
+    {660,100},
+    {0,150},
+    {660,100},
+	{0,300},
+	{660,100},
+	{0,300},
+	{510,100},
+	{0,100},
+	{660,100},
+	{0,300},
+	{770,100},
+	{0,550},
+	{380,100},
+	{0,575},
+
+	{510,100},
+	{0,450},
+	{380,100},
+	{0,400},
+	{320,100},
+	{0,500},
+	{440,100},
+	{0,300},
+	{480,80},
+	{0,330},
+	{450,100},
+	{0,150},
+};
+
+static const BUZ_Tune MelodyStarWars[] =
+{ /* freq, ms */
+    {500,500},
+    {0,100},
+
+	{375,500},
+    {0,50},
+
+	{335,500},
+    {290,500},
+	{250,500},
+    {500,500},
+    {0,500},
+
+	{375,500},
+	{335,500},
+	{290,500},
+	{250,500},
+	{500,500},
+    {0,500},
+
+	{375,500},
+	{335,500},
+	{290,500},
+	{250,500},
+	{375,500},
+    {0,400},
+
+	{335,500},
+	{290,500},
+	{250,500},
+	{500,500},
+    {0,200},
+
+	{375,500},
+	{335,500},
+	{290,500},
+	{335,500},
+	{250,500},
+	{0,300},
+
+	{425,500},
+	{0,100},
+
+	{425,500},
+	{335,500},
+	{290,500},
+	{250,500},
+	{500,500},
+	{500,500},
+	{250,500},
+	{290,500},
+	{250,500},
+	{425,500},
+	{1500,500},
+	{0,350},
+
+	{425,500},
+	{0,100},
+
+	{425,500},
+	{335,500},
+	{290,500},
+	{250,500},
+	{500,500},
+	{500,500},
+	{375,500},
+	{375,500},
+};
+
 typedef struct {
   int idx; /* current index */
   int maxIdx; /* maximum index */
@@ -63,6 +164,8 @@ static MelodyDesc BUZ_Melodies[] = {
   {0, sizeof(MelodyWelcome)/sizeof(MelodyWelcome[0]),         {0, 0}, MelodyWelcome}, /* BUZ_TUNE_WELCOME */
   {0, sizeof(MelodyButton)/sizeof(MelodyButton[0]),           {0, 0}, MelodyButton}, /* BUZ_TUNE_BUTTON */
   {0, sizeof(MelodyButtonLong)/sizeof(MelodyButtonLong[0]),   {0, 0}, MelodyButtonLong}, /* BUZ_TUNE_BUTTON_LONG */
+  {0, sizeof(MelodyMario)/sizeof(MelodyMario[0]),   {0, 0}, MelodyMario}, /* BUZ_TUNE_MARIO */
+  {0, sizeof(MelodyStarWars)/sizeof(MelodyStarWars[0]),   {0, 0}, MelodyStarWars}, /* BUZ_TUNE_STARWARS */
 };
 
 static void BUZ_Toggle(void *dataPtr) {

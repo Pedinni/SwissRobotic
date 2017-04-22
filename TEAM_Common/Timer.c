@@ -20,7 +20,7 @@
 #endif
 #include "TMOUT1.h"
 
-uint8 Ticks;
+uint16 Ticks;
 
 void TMR_OnInterrupt(void) {
   /* this one gets called from an interrupt!!!! */
@@ -32,6 +32,7 @@ void TMR_OnInterrupt(void) {
 	} else{
 		Ticks++;
 	}
+	TRG_AddTick();
 }
 
 void TMR_Init(void) {

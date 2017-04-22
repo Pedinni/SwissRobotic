@@ -61,7 +61,7 @@ void APP_EventHandler(EVNT_Handle event) {
 	  LED2_Off();
 	  break;
   case EVNT_SW1_PRESSED:
-	  CLS1_SendStr('Hello World', CLS1_GetStdio()->stdOut);
+	  //CLS1_SendStr('Hello World', CLS1_GetStdio()->stdOut);
 	  LED1_On();
 	  WAIT1_WaitOSms(100);
 	  LED1_Off();

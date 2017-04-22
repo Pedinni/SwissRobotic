@@ -104,6 +104,7 @@
 #include "XF1.h"
 #include "UTIL1.h"
 #include "KIN1.h"
+#include "Buzzer.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -127,6 +128,8 @@ int main(void)
   EVNT_Init();
   __asm volatile("cpsie i");
 
+  //BUZ_PlayTune(BUZ_TUNE_WELCOME);
+  BUZ_PlayTune(BUZ_TUNE_STARWARS);
 
   for(;;){
 	  KEY_Scan();
