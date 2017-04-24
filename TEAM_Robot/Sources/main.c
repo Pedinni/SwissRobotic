@@ -129,12 +129,12 @@ int main(void)
   __asm volatile("cpsie i");
 
   //BUZ_PlayTune(BUZ_TUNE_WELCOME);
-  BUZ_PlayTune(BUZ_TUNE_STARWARS);
+  //BUZ_PlayTune(BUZ_TUNE_STARWARS);
 
-  for(;;){
-	  KEY_Scan();
-	  EVNT_HandleEvent(&APP_EventHandler, TRUE);
-  }
+ // for(;;){
+//	  KEY_Scan();
+//	  EVNT_HandleEvent(&APP_EventHandler, TRUE);
+//}
   APP_Start();
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/

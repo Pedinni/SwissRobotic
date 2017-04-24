@@ -61,7 +61,7 @@ void APP_EventHandler(EVNT_Handle event) {
 	  LED2_Off();
 	  break;
   case EVNT_SW1_PRESSED:
-	  //CLS1_SendStr('Hello World', CLS1_GetStdio()->stdOut);
+	  CLS1_SendStr("BTN 1 pressed\n", CLS1_GetStdio()->stdOut);
 	  LED1_On();
 	  WAIT1_WaitOSms(100);
 	  LED1_Off();
@@ -150,7 +150,9 @@ void APP_Start(void) {
   /* does usually not return! */
 #else
   for(;;) {
-    WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
+	  KEY_Scan();
+	  EVNT_HandleEvent(&APP_EventHandler, TRUE);
+   //WAIT1_Waitms(25); /* just wait for some arbitrary time .... */
   }
 #endif
 }

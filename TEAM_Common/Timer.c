@@ -19,6 +19,7 @@
   #include "Tacho.h"
 #endif
 #include "TMOUT1.h"
+#include "TI1.h"
 
 uint16 Ticks;
 
