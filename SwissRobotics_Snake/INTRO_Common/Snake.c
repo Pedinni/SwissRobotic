@@ -402,6 +402,8 @@ void SNAKE_Deinit(void) {
 
 void SNAKE_Init(void) {
   /*! \todo implement init */
-
+	if (xTaskCreate(SnakeTask, (signed portCHAR *)"Snake", 500/sizeof(StackType_t), NULL, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
+		for(;;){} /* error case only, stay here! */
+	}
 }
 #endif /* PL_HAS_SNAKE_GAME */
