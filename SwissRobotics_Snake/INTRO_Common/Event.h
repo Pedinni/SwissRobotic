@@ -56,6 +56,13 @@ typedef enum EVNT_Handle {
   #endif
 #endif
   /*!< \todo Your extra events here */
+  EVNT_LCD_BTN_LEFT,
+  EVNT_LCD_BTN_RIGHT,
+  EVNT_LCD_BTN_UP,
+  EVNT_LCD_BTN_DOWN,
+  EVNT_LCD_BTN_CENTER,
+  EVNT_LCD_SIDE_BTN_UP,
+  EVNT_LCD_SIDE_BTN_DOWN,
   EVNT_NOF_EVENTS       /*!< Must be last one! */
 } EVNT_Handle;
 
