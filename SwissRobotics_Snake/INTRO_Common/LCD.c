@@ -87,11 +87,11 @@ static LCDMenu_StatusFlags BackLightMenuHandler(const struct LCDMenu_MenuItem_ *
 static const LCDMenu_MenuItem menus[] =
 {/* id,                                     grp, pos,   up,                       down,                             text,           callback                      flags                  */
     {LCD_MENU_ID_MAIN,                        0,   0,   LCD_MENU_ID_NONE,         LCD_MENU_ID_BACKLIGHT,            "General",      NULL,                         LCDMENU_MENU_FLAGS_NONE},
-	  {LCD_MENU_ID_BACKLIGHT,                 1,   0,   LCD_MENU_ID_MAIN,         LCD_MENU_ID_NONE,                 "Game",         BackLightMenuHandler,         LCDMENU_MENU_FLAGS_NONE},
-      {LCD_MENU_ID_NUM_VALUE,                 1,   1,   LCD_MENU_ID_MAIN,         LCD_MENU_ID_NONE,                 "Setting",      ValueChangeHandler,           LCDMENU_MENU_FLAGS_EDITABLE},
+	  {LCD_MENU_ID_BACKLIGHT,                 1,   0,   LCD_MENU_ID_MAIN,         LCD_MENU_ID_NONE,                 "Backlight",         BackLightMenuHandler,         LCDMENU_MENU_FLAGS_NONE},
+      {LCD_MENU_ID_NUM_VALUE,                 1,   1,   LCD_MENU_ID_MAIN,         LCD_MENU_ID_NONE,                 "Value",      ValueChangeHandler,           LCDMENU_MENU_FLAGS_EDITABLE},
 
 	{LCD_MENU_ID_GAMES,						  0,   1,   LCD_MENU_ID_NONE,  		  LCD_MENU_ID_SNAKE,				"Games",		NULL,						  LCDMENU_MENU_FLAGS_NONE},
-	  {LCD_MENU_ID_SNAKE,					  1,   0,   LCD_MENU_ID_GAMES,		  LCD_MENU_ID_NONE,				    "Snake",        NULL, 						LCDMENU_MENU_FLAGS_NONE},
+	  {LCD_MENU_ID_SNAKE,					  2,   0,   LCD_MENU_ID_GAMES,		  LCD_MENU_ID_NONE,				    "Snake",        NULL, 						LCDMENU_MENU_FLAGS_NONE},
 };
 
 #if PL_CONFIG_HAS_RADIO
