@@ -159,7 +159,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #endif
 #if PL_CONFIG_NOF_KEYS>=6
   case EVNT_SW6_PRESSED:
-	  EVNT_SetEvent(EVNT_LCD_SIDE_BTN_UP);
+	  EVNT_SetEvent(EVNT_LCD_SIDE_BTN_DOWN);
     BtnMsg(6, "pressed");
     LED1_On();
     WAIT1_Waitms(50);
@@ -168,7 +168,7 @@ void APP_EventHandler(EVNT_Handle event) {
 #endif
 #if PL_CONFIG_NOF_KEYS>=7
   case EVNT_SW7_PRESSED:
-	  EVNT_SetEvent(EVNT_LCD_SIDE_BTN_DOWN);
+	  EVNT_SetEvent(EVNT_LCD_SIDE_BTN_UP);
     BtnMsg(7, "pressed");
     LED1_On();
     WAIT1_Waitms(50);
