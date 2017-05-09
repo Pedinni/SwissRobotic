@@ -66,6 +66,7 @@ static GDisp1_PixelDim snakeRow[SNAKE_MAX_LEN];
 
 static void waitAnyButton(void) {
   /*! \todo Wait for any button pressed */
+
 }
 
 static void delay(int ms) {
