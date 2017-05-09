@@ -203,6 +203,9 @@ static void eatFood(void) {
   /* increase the point and snake length */
   point++;
   snakeLen += 2;
+  if (snakeLen>SNAKE_MAX_LEN-1){
+	  snakeLen= SNAKE_MAX_LEN-1;
+  }
   /* new coordinates food randomly */
   xFood = random(1, MAX_WIDTH-3);
   yFood = random(1, MAX_HEIGHT-3);
@@ -399,5 +402,6 @@ void SNAKE_Deinit(void) {
 
 void SNAKE_Init(void) {
   /*! \todo implement init */
+
 }
 #endif /* PL_HAS_SNAKE_GAME */
