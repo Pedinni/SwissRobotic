@@ -159,7 +159,7 @@ void PL_Init(void) {
   BATT_Init();
 #endif
 #if PL_CONFIG_HAS_SNAKE_GAME
-  SNAKE_Init();
+  //SNAKE_Init();
 #endif
 #if PL_HAS_DISTANCE_SENSOR
   DIST_Init();
