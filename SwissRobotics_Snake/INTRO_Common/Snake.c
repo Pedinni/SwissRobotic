@@ -67,6 +67,7 @@ static GDisp1_PixelDim snakeRow[SNAKE_MAX_LEN];
 static void waitAnyButton(void) {
   /*! \todo Wait for any button pressed */
 
+
 }
 
 static void delay(int ms) {
@@ -381,8 +382,8 @@ static void intro(void) {
   y = totalHeight;
   FDisp1_WriteString((unsigned char*)"Snake Game", GDisp1_COLOR_BLACK, &x, &y, font);
   y += totalHeight;
-  x = (GDisp1_GetWidth()-FDisp1_GetStringWidth((unsigned char*)"McuOnEclipse", font, NULL))/2; /* center text */
-  FDisp1_WriteString((unsigned char*)"McuOnEclipse", GDisp1_COLOR_BLACK, &x, &y, font);
+  x = (GDisp1_GetWidth()-FDisp1_GetStringWidth((unsigned char*)"SwissRobotics", font, NULL))/2; /* center text */
+  FDisp1_WriteString((unsigned char*)"SwissRobotics", GDisp1_COLOR_BLACK, &x, &y, font);
   GDisp1_UpdateFull();
   WAIT1_WaitOSms(3000);
 }

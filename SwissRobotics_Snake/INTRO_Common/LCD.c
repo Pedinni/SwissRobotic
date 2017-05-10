@@ -30,6 +30,8 @@ static bool LedBackLightisOn = TRUE;
 static bool remoteModeIsOn = FALSE;
 static bool requestLCDUpdate = FALSE;
 
+static TaskHandle_t LCD_Task_Handle = NULL;
+
 #if PL_CONFIG_HAS_LCD_MENU
 typedef enum {
   LCD_MENU_ID_NONE = LCDMENU_ID_NONE, /* special value! */
@@ -89,6 +91,8 @@ static LCDMenu_StatusFlags SnakeMenuHandler(const struct LCDMenu_MenuItem_ *item
 	LCDMenu_StatusFlags flags = LCDMENU_STATUS_FLAGS_HANDLED;
 
 	SNAKE_Init();
+
+	vTaskDelete(LCD_Task_Handle);
 
 	return flags;
 }
@@ -231,7 +235,7 @@ void LCD_Deinit(void) {
 
 void LCD_Init(void) {
   LedBackLightisOn =  TRUE;
-  if (xTaskCreate(LCD_Task, "LCD", 500/sizeof(StackType_t), NULL, tskIDLE_PRIORITY, NULL) != pdPASS) {
+  if (xTaskCreate(LCD_Task, "LCD", 500/sizeof(StackType_t), NULL, tskIDLE_PRIORITY, &LCD_Task_Handle) != pdPASS) {
     for(;;){} /* error! probably out of memory */
   }
 #if PL_CONFIG_HAS_LCD_MENU
