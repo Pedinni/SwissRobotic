@@ -92,7 +92,7 @@ static LCDMenu_StatusFlags SnakeMenuHandler(const struct LCDMenu_MenuItem_ *item
 
 	SNAKE_Init();
 
-	vTaskDelete(LCD_Task_Handle);
+	vTaskSuspend(LCD_Task_Handle);
 
 	return flags;
 }
