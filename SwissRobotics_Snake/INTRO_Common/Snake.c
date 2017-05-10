@@ -66,7 +66,9 @@ static GDisp1_PixelDim snakeRow[SNAKE_MAX_LEN];
 
 static void waitAnyButton(void) {
   /*! \todo Wait for any button pressed */
-
+	while(!EVNT_EventIsSetAutoClear(EVNT_LCD_BTN_CENTER)){
+		vTaskDelay(time/portTICK_RATE_MS);
+	}
 
 }
 
@@ -234,35 +236,35 @@ static void direc(int d) {
 static void moveSnake(void) {
   /* LEFT */
   /*! \todo handle events */
-  if("left event" && !right) {
+  if(EVNT_EventIsSetAutoClear(EVNT_LCD_BTN_LEFT) && !right) {
     if((xSnake > 0 || xSnake <= GDisp1_GetWidth() - xSnake)) {
       direc(LEFT);
     }
     return;
   }
   /* RIGHT */
-  if("right event" && !left) {
+  if(EVNT_EventIsSetAutoClear(EVNT_LCD_BTN_RIGHT) && !left) {
     if((xSnake > 0 || xSnake <= GDisp1_GetWidth() - xSnake)) {
       direc(RIGHT);
     }
     return;
   }
   /* UP */
-  if("up event" && !down) {
+  if(EVNT_EventIsSetAutoClear(EVNT_LCD_BTN_UP) && !down) {
     if((ySnake > 0 || ySnake <= GDisp1_GetHeight() - ySnake)) {
       direc(UP);
     }
     return;
   }
   /* DOWN */
-  if("down event" && !up) {
+  if(EVNT_EventIsSetAutoClear(EVNT_LCD_BTN_DOWN) && !up) {
     if((ySnake > 0 || ySnake <= GDisp1_GetHeight() - ySnake)) {
       direc(DOWN);
     }
     return;
   }
   /* START/PAUSE */
-  if("start/pause event") {
+  if(EVNT_EventIsSetAutoClear(EVNT_LCD_SIDE_BTN_UP)) {
     showPause();
   }
 }
