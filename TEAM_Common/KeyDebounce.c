@@ -217,7 +217,9 @@ void KEYDBNC_Process(void) {
   #if PL_CONFIG_HAS_KBI
     KEY_DisableInterrupts(); /* disable interrupts for all keys */
   #endif
-    DBNC_Process(&KEYDBNC_FSMdata); /* starts the state machine */
+    if (KEYDBNC_FSMdata.state==DBNC_KEY_IDLE && KEYDBNC_GetKeys()!=0) { /* a key is pressed and we are not debouncing */
+    	DBNC_Process(&KEYDBNC_FSMdata); /* starts the state machine */
+    }
   }
 }
 

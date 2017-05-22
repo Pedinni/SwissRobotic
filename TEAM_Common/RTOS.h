@@ -10,6 +10,9 @@
 #define RTOS_H_
 
 #include "Platform.h"
+#include "Application.h"
+#include "KeyDebounce.h"
+
 #if PL_CONFIG_HAS_RTOS
 /*! \brief Initializes the RTOS module */
 void RTOS_Init(void);

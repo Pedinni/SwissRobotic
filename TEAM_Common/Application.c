@@ -48,7 +48,7 @@ void APP_EventHandler(EVNT_Handle event) {
   /*! \todo handle events */
   switch(event) {
   case EVNT_STARTUP:
-    break;
+	  break;
   case EVNT_LED_NEG:
 	  LED1_Neg();
 	  break;
@@ -62,12 +62,9 @@ void APP_EventHandler(EVNT_Handle event) {
 	  break;
   case EVNT_SW1_PRESSED:
 	  CLS1_SendStr("BTN 1 pressed\n", CLS1_GetStdio()->stdOut);
-	  LED1_On();
-	  WAIT1_WaitOSms(100);
-	  LED1_Off();
 	  break;
   default:
-    break;
+	  break;
    } /* switch */
 }
 #endif /* PL_CONFIG_HAS_EVENTS */
