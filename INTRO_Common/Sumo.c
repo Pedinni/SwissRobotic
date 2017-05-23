@@ -13,6 +13,7 @@
 #include "Reflectance.h"
 #include "Turn.h"
 #include "CLS1.h"
+#include "Buzzer.h"
 
 typedef enum {
   SUMO_STATE_IDLE,
@@ -43,6 +44,8 @@ void SUMO_StartStopSumo(void) {
   if (SUMO_IsRunningSumo()) {
     (void)xTaskNotify(sumoTaskHndl, SUMO_STOP_SUMO, eSetBits);
   } else {
+	(void)BUZ_PlayTune(BUZ_TUNE_COUNTDOWN);
+	vTaskDelay(pdMS_TO_TICKS(5000));							// 5s Countdown befor start
     (void)xTaskNotify(sumoTaskHndl, SUMO_START_SUMO, eSetBits);
   }
 }
@@ -55,7 +58,7 @@ static void SumoRun(void) {
     switch(sumoState) {
       case SUMO_STATE_IDLE:
         if ((notifcationValue&SUMO_START_SUMO) && REF_GetLineKind()==REF_LINE_FULL) {
-          DRV_SetSpeed(1000, 1000);
+          DRV_SetSpeed(2000, 2000);
           DRV_SetMode(DRV_MODE_SPEED);
           sumoState = SUMO_STATE_DRIVING;
           break; /* handle next state */
@@ -74,7 +77,7 @@ static void SumoRun(void) {
         return;
       case SUMO_STATE_TURNING:
         DRV_SetMode(DRV_MODE_STOP);
-        TURN_Turn(TURN_RIGHT180, NULL);
+        TURN_Turn(TURN_LEFT120, NULL);
         DRV_SetMode(DRV_MODE_SPEED);
         sumoState = SUMO_STATE_DRIVING;
         break; /* handle next state */

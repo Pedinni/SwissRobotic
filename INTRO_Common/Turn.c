@@ -54,6 +54,7 @@ const unsigned char *TURN_TurnKindStr(TURN_Kind kind) {
   switch(kind) {
     case TURN_LEFT45:                 return (const unsigned char*)"LEFT45";
     case TURN_LEFT90:                 return (const unsigned char*)"LEFT90";
+    case TURN_LEFT120:				  return (const unsigned char*)"LEFT120";
     case TURN_RIGHT45:                return (const unsigned char*)"RIGHT45";
     case TURN_RIGHT90:                return (const unsigned char*)"RIGHT90";
     case TURN_LEFT180:                return (const unsigned char*)"LEFT180";
@@ -135,6 +136,9 @@ void TURN_Turn(TURN_Kind kind, TURN_StopFct stopIt) {
     case TURN_LEFT90:
       StepsTurn(-TURN_Steps90, TURN_Steps90, stopIt, TURN_STEPS_90_TIMEOUT_MS);
       break;
+    case TURN_LEFT120:
+    	StepsTurn(-TURN_Steps90/3*4, TURN_Steps90/3*4, stopIt, TURN_STEPS_90_TIMEOUT_MS);
+    	break;
     case TURN_RIGHT90:
       StepsTurn(TURN_Steps90, -TURN_Steps90, stopIt, TURN_STEPS_90_TIMEOUT_MS);
       break;
