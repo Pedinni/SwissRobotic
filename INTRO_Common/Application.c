@@ -293,8 +293,7 @@ static void APP_AdoptToHardware(void) {
   } else if (KIN1_UIDSame(&id, &RoboIDs[8])) { /* L4, V2, Robo Pädi */
 	MOT_Invert(MOT_GetMotorHandle(MOT_MOTOR_LEFT), TRUE); /* invert left motor */
 	#if PL_CONFIG_HAS_QUADRATURE
-	    //(void)Q4CLeft_SwapPins(TRUE);
-	    //(void)Q4CRight_SwapPins(TRUE);
+	    (void)Q4CRight_SwapPins(TRUE);
 	#endif
   }
 #endif
